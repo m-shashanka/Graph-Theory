@@ -12,9 +12,15 @@ export default class Graph{
         this.AdjList.set(v, []);
     }
 
-    addEdge(u, v)
+    addEdge(u, v, w)
     {
-        this.AdjList.get(u).push(v);
-        this.AdjList.get(v).push(u);
+        if(w === undefined){
+            this.AdjList.get(u).push(v);
+            this.AdjList.get(v).push(u);
+        }
+        else{
+            this.AdjList.get(u).push([v,w]);
+            this.AdjList.get(v).push([u,w]);
+        }
     }
 }

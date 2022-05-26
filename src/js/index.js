@@ -1,5 +1,6 @@
 import Graph from "./graph.js";
-import Queue from "./queue.js";
+import drawGraph from "./createGraph.js";
+import checkBipartite from "./bipartite.js";
 
 var G;
 
@@ -11,113 +12,39 @@ function handleInput(e){
     var v = +myForm.vnum.value
     var e = +myForm.enum.value;
     var edges = null;
-    var e1 = myForm.edges.value.match(/\d+/g);
+    var e1 = myForm.edges.value.match(/[-]?\d+/g);
     if(e1)
         edges = e1.map(Number);
-    if(Number.isInteger(v) && Number.isInteger(e) && edges && edges.length == 2*e){
+    if(Number.isInteger(v) && Number.isInteger(e) && edges && (edges.length == 2*e || edges.length == 3*e)){
         var Edges = [];
-        for(let i=0;i<edges.length;i+=2){
+        let incr;
+        if(edges.length === 2*e)
+            incr = 2;
+        else
+            incr = 3;
+        for(let i=0;i<edges.length;i+=incr){
             if(edges[i] < 1 || edges[i] > v || edges[i+1] < 1 || edges[i+1] > v){
                 alert("Error: Invalid input");
                 return false;
             }
-            Edges.push([edges[i],edges[i+1]]);
+            if(incr === 2)
+                Edges.push([edges[i],edges[i+1]]);
+            else
+                Edges.push([edges[i],edges[i+1],edges[i+2]]);
         }
         G = new Graph(v);
-        for(let i=0;i<Edges.length;i++)
-            G.addEdge(Edges[i][0],Edges[i][1]);
-        drawGraph(Edges,v);
+        for(let i=0;i<Edges.length;i++){
+            if(Edges[i].length === 2)
+                G.addEdge(Edges[i][0],Edges[i][1]);
+            else
+                G.addEdge(Edges[i][0],Edges[i][1],Edges[i][2]);
+        }
+        drawGraph(Edges,v,G);
+        // setTimeout(function(){
+        //     checkBipartite(G);
+        // },1000);
     } else{
         alert("Error: Invalid input");
     }
     return false;
-}
-
-const getOffset = (el) => {
-    const rect = el.getBoundingClientRect();
-    return {
-        left: rect.left + window.pageXOffset,
-        top: rect.top + window.pageYOffset,
-        width: rect.width || el.offsetWidth,
-        height: rect.height || el.offsetHeight
-    };
-}
-
-const connect = (div1, div2, color, thickness) => {
-    const off1 = getOffset(div1);
-    const off2 = getOffset(div2);
-
-    const x1 = off1.left + off1.width/2;
-    const y1 = off1.top + off1.height/2;
-
-    const x2 = off2.left + off2.width/2;
-    const y2 = off2.top + off2.height/2;
-
-    const length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
-
-    const cx = ((x1 + x2) / 2) - (length / 2);
-    const cy = ((y1 + y2) / 2) - (thickness / 2);
-
-    const angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
-
-    const htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-
-    document.body.innerHTML += htmlLine;
-}
-
-function drawEdge(id1,id2){
-    const d1 = document.getElementById(id1);
-    const d2 = document.getElementById(id2);
-    connect(d1, d2, 'black', 5);
-}
-
-function drawGraph(Edges,v){
-
-    var radius = screen.width/(5*v);
-
-    var visited = {};
- 
-    var q = new Queue();
- 
-    visited[1] = true;
-    q.enqueue([1,0]);
- 
-    while (!q.isEmpty()) {
-        var node = q.dequeue();
-
-        var u = node[0];
-        var level = node[1];
-
-        var canvas = document.getElementById("output");
-        var row = canvas.getElementsByClassName("level")[Math.abs(level)];
-        if(!row){
-            row = document.createElement('div');
-            row.setAttribute('id',`l${level}`);
-            row.setAttribute('class','level');
-            canvas.appendChild(row);
-        }
-
-        var element = document.createElement('div');
-        element.setAttribute('id',`v${u}`);
-        element.setAttribute('class','node');
-        element.style.width = radius;
-        element.style.height = radius;
-        element.innerHTML = `<h2>${u}</h2>`;
-        row.appendChild(element);
- 
-        var get_List = G.AdjList.get(u);
- 
-        for (var i in get_List) {
-            var v = get_List[i];
- 
-            if (!visited[v]) {
-                visited[v] = true;
-                q.enqueue([v,level-1]);
-            }
-        }
-    }
-
-    for(let i=0;i<Edges.length;i++)
-        drawEdge(`v${Edges[i][0]}`,`v${Edges[i][1]}`);
-
 }
