@@ -1,21 +1,23 @@
 body{
     margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #root{
     display: flex;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 #input{
     flex: 3;
     background-color: aliceblue;
-    border-right: 2px solid black;
+    transition: transform 2s ease-in;
 }
 
 #output{
     flex: 5;
-    border-left: 2px solid black;
+    border-left: 4px solid black;
 }
 
 #form-input{
@@ -82,14 +84,78 @@ body{
     margin: 0;
 }
 
-.edge{
-    position: relative;
-}
-
 .edge > span{
     position: absolute;
     left: 50%;
     right: 50%;
-    bottom: 18px;
-    color: red;
+    bottom: 22px;
+    color: #FF6001;
+    font-weight: bold;
+}
+
+#menu{
+    height: 100%;
+    display: flex;
+    margin-top: 35vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+#menu > button{
+    width: 90%;
+    margin: 25px auto;
+    border-radius: 12px;
+    letter-spacing: 2px;
+    padding: 7px;
+    background: #1E1E3F;
+    color: white;
+    cursor: pointer;
+}
+
+#menu > button:hover:enabled{
+    transform: scale(1.08);
+}
+
+#menu > button:disabled{
+    cursor: default;
+    opacity: 0.6;
+}
+
+#graph{
+    min-height: 88vh;
+    max-height: 88vh;
+    overflow: auto;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+#graph > h1{
+    text-align: center;
+    margin-top: 30%;
+}
+
+#console{
+    margin: 2px 5px;
+    border-radius: 12px;
+    min-height: 11vh;
+    max-height: 11vh;
+    background-color: black;
+    margin-bottom: 10px;
+}
+
+#console > h2{
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px;
+}
+
+#console > p{
+    color: white;
+    margin: 0;
+    padding-top: 9px;
+    padding-left: 12px;
+    font-size: large;
 }
