@@ -88,9 +88,10 @@ body{
     position: absolute;
     left: 50%;
     right: 50%;
-    bottom: 22px;
+    bottom: 24px;
     color: #FF6001;
     font-weight: bold;
+    font-size: large;
 }
 
 #menu{
@@ -101,6 +102,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
+    position: relative;
 }
 
 #menu > button{
@@ -157,5 +159,14 @@ body{
     margin: 0;
     padding-top: 9px;
     padding-left: 12px;
+    font-size: large;
+}
+
+.refresh{
+    position: absolute;
+    bottom: 18%;
+    background-color: cyan !important;
+    color: #1E1E3F !important;
+    letter-spacing: 0 !important;
     font-size: large;
 }
