@@ -23,11 +23,30 @@
                     </div>
                     <button type="submit">Submit</button>
                 </form>
+                <div id="menu">
+                    <button name="choice" value="bipartite" onclick="lib.handleChoice(this.value)">Check Bipartiteness</button>
+                    <button name="choice" value="cut-vertex" onclick="lib.handleChoice(this.value)">Articulation Points</button>
+                    <button name="choice" value="cut-edge" onclick="lib.handleChoice(this.value)">Find Bridges</button>
+                    <button name="choice" value="kruskals" onclick="lib.handleChoice(this.value)">Kruskal's MST</button>
+                    <button name="choice" value="prims" onclick="lib.handleChoice(this.value)">Prim's MST</button>
+                </div>
             </div>
             <div id="output">
-
+                <div id="graph"></div>
+                <div id="console">
+                    <h2>Output</h2>
+                </div>
             </div>
         </div>
         <script src="../dist/bundle.js"></script>
+        <script>
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            } else {
+                window.onbeforeunload = function () {
+                    window.scrollTo(0, 0);
+                }
+            }
+        </script>
     </body>
 </html>
