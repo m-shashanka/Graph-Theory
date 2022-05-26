@@ -6,5 +6,9 @@ module.exports = {
     output:{
         path: path.resolve(__dirname,'dist'),
         filename: 'bundle.js',
+        library: {
+            name: 'lib',
+            type: 'var',
+        }
     },
 }
