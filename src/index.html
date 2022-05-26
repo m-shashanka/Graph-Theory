@@ -24,11 +24,12 @@
                     <button type="submit">Submit</button>
                 </form>
                 <div id="menu">
-                    <button name="choice" value="bipartite" onclick="lib.handleChoice(this.value)">Check Bipartiteness</button>
-                    <button name="choice" value="cut-vertex" onclick="lib.handleChoice(this.value)">Articulation Points</button>
-                    <button name="choice" value="cut-edge" onclick="lib.handleChoice(this.value)">Find Bridges</button>
-                    <button name="choice" value="kruskals" onclick="lib.handleChoice(this.value)">Kruskal's MST</button>
-                    <button name="choice" value="prims" onclick="lib.handleChoice(this.value)">Prim's MST</button>
+                    <button value="bipartite" onclick="lib.handleChoice(this.value)">Check Bipartiteness</button>
+                    <button value="cut-vertex" onclick="lib.handleChoice(this.value)">Articulation Points</button>
+                    <button value="cut-edge" onclick="lib.handleChoice(this.value)">Find Bridges</button>
+                    <button value="kruskals" onclick="lib.handleChoice(this.value)">Kruskal's MST</button>
+                    <button value="prims" onclick="lib.handleChoice(this.value)">Prim's MST</button>
+                    <button class="refresh" onclick="location.reload()">Try another Graph</button>
                 </div>
             </div>
             <div id="output">
