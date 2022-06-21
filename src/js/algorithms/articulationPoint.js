@@ -60,7 +60,7 @@ async function dfs(u, p, vis, tin, low, timer, points, G){
             children++;
         }
         else
-            low[u] = Math.min(low[u],low[v]);
+            low[u] = Math.min(low[u],tin[v]);
     }
 
     if (ap && (p != -1 || children > 1)){

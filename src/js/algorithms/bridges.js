@@ -1,5 +1,5 @@
 import clearTerminal from "../utilities/clearTerminal";
-import { colorEdge, colorVertex } from "../utilities/colorElements";
+import { colorEdge } from "../utilities/colorElements";
 import { yellow, black, green } from "../utilities/constants";
 
 export default async function findBridges(G){
@@ -52,6 +52,6 @@ async function dfs(u, p, vis, tin, low, timer, edges, G){
             }
         }
         else
-            low[u] = Math.min(low[u],low[v]);
+            low[u] = Math.min(low[u],tin[v]);
     }
 }
