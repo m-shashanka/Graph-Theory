@@ -1,8 +1,11 @@
 import sleep from "./sleep.js";
 
 export async function colorVertex (v,color){
+    const node = document.getElementById("v"+v);
+    if(window.getComputedStyle(node).backgroundColor == color)
+        return;
     await sleep(1000);
-    document.getElementById("v"+v).style.backgroundColor = color;
+    node.style.backgroundColor = color;
 }
 
 export async function colorEdge(v1,v2,color){

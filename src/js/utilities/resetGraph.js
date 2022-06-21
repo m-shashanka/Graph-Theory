@@ -12,9 +12,9 @@ export default function resetGraph(G){
             else
                 v = get_List[i];
 
-            const edge = document.getElementById("e"+Math.min(u,v)+Math.max(u,v));
+            var edge = document.getElementById("e"+Math.min(u,v)+Math.max(u,v));
             edge.style.display = "block";
-            edge.style.color = black;
+            edge.style.backgroundColor = black;
         }
     }
 }
