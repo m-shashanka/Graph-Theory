@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>Graph</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>Graph Visualizer</title>
+        <!-- <link rel="stylesheet" href="styles.css"> -->
     </head>
     <body>
         <div id="root">
@@ -12,6 +12,7 @@
                     <br>
                     <h3>Enter the number of edges: &nbsp</h3>
                     <input type="text" name="enum" size="4"/>
+                    <br />
                     <h3>Enter the edges as pair of vertices :-</h3>
                     <br>
                     <div class="container">
@@ -24,11 +25,16 @@
                     <button type="submit">Submit</button>
                 </form>
                 <div id="menu">
+                    <button value="preorder" onclick="lib.handleChoice(this.value)">Preorder Traversal(Full Binary Tree)</button>
+                    <button value="inorder" onclick="lib.handleChoice(this.value)">Inorder Traversal(Full Binary Tree)</button>
+                    <button value="postorder" onclick="lib.handleChoice(this.value)">Postorder Traversal(Full Binary Tree)</button>
+                    <button value="bfs" onclick="lib.handleChoice(this.value)">Breadth First Search</button>
+                    <button value="dfs" onclick="lib.handleChoice(this.value)">Depth First Search</button>
                     <button value="bipartite" onclick="lib.handleChoice(this.value)">Check Bipartiteness</button>
                     <button value="cut-vertex" onclick="lib.handleChoice(this.value)">Articulation Points</button>
                     <button value="cut-edge" onclick="lib.handleChoice(this.value)">Find Bridges</button>
-                    <button value="kruskals" onclick="lib.handleChoice(this.value)">Kruskal's MST</button>
-                    <button value="prims" onclick="lib.handleChoice(this.value)">Prim's MST</button>
+                    <button value="kruskals" onclick="lib.handleChoice(this.value)">Kruskal's MST(Weighted Graph)</button>
+                    <button value="prims" onclick="lib.handleChoice(this.value)">Prim's MST(Weighted Graph)</button>
                     <button class="refresh" onclick="location.reload()">Try another Graph</button>
                 </div>
             </div>
@@ -39,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <script src="../dist/bundle.js"></script>
+        <!-- <script src="../dist/bundle.js"></script> -->
         <script>
             if (history.scrollRestoration) {
                 history.scrollRestoration = 'manual';
