@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -11,4 +12,22 @@ module.exports = {
             type: 'var',
         }
     },
+    module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: [
+              'style-loader',
+              'css-loader'
+            ]
+          }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Graph Visualizer',
+            filename: 'index.html',
+            template: 'src/index.html',
+        }),
+    ]
 }
