@@ -1,3 +1,5 @@
+import "../styles.css";
+
 import Graph from "./data-structures/graph.js";
 import drawGraph from "./utilities/createGraph.js";
 import checkBipartite from "./algorithms/bipartite.js";
