@@ -19,21 +19,6 @@ module.exports = {
                 'css-loader'
               ]
             },
-            {
-              test: /\.(js|jsx)$/,
-              exclude: /node_modules/,
-              use: {
-                  loader: "babel-loader"
-              }
-            },
-            {
-              test: /\.html$/,
-              use: [
-                  {
-                      loader: "html-loader"
-                  }
-              ]
-          }
         ]
     },
     plugins: [
@@ -43,5 +28,5 @@ module.exports = {
             template: './src/index.html',
             favicon: "./src/favicon.ico",
         }),
-    ]
+    ],
 }

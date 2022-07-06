@@ -61,7 +61,7 @@ export async function handleInput(e){
             alert("Graph should not be disconnected");
             return;
         }
-        document.getElementById("input").style.transform = "translateY(-100%)";
+        document.getElementById("input").style.transform = "translateY(-60%)";
         document.getElementById("graph").innerHTML += "<h1>Building graph....</h1>";
         await sleep(2100);
         isFBT = checkFBT(G);

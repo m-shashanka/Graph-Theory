@@ -2,6 +2,7 @@ body{
     margin: 0;
     height: 100vh;
     overflow: hidden;
+    background-color: aliceblue;
 }
 
 #root{
@@ -11,13 +12,13 @@ body{
 
 #input{
     flex: 3;
-    background-color: aliceblue;
     transition: transform 2s ease-in;
 }
 
 #output{
     flex: 5;
     border-left: 4px solid black;
+    background-color: white;
 }
 
 #form-input{
@@ -95,19 +96,18 @@ body{
 }
 
 #menu{
-    height: 100%;
+    height: 40%;
+    overflow-y: auto;
     display: flex;
-    margin-top: 35vh;
+    margin-top: 55%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
-    position: relative;
 }
 
 #menu > button{
     width: 90%;
-    margin: 25px auto;
+    margin: 10px auto;
     border-radius: 12px;
     letter-spacing: 2px;
     padding: 7px;
@@ -163,8 +163,7 @@ body{
 }
 
 .refresh{
-    position: absolute;
-    bottom: 18%;
+    margin-top: 40px !important;
     background-color: cyan !important;
     color: #1E1E3F !important;
     letter-spacing: 0 !important;
