@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "webpack serve",
     "start": "node server.js",
-    "build": "webpack --mode production",
-    "heroku-postbuild": "webpack -p"
+    "build": "webpack --mode production"
   },
   "author": "Shashank",
   "license": "ISC",
