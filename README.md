@@ -1,7 +1,5 @@
 # Graph Visualizer
 
-## Website Link : https://graph-visualizer-labxrit.herokuapp.com
-
 1. Preorder Traversal(Full Binary Tree)                                                                                                                                                                                                                                                                                                           
 2. Inorder Traversal(Full Binary Tree)                                                                                                                                                                                                                                                                                                        
 3. Postorder Traversal(Full Binary Tree)                                                                                                                                                                                                                                                                                                      
